@@ -6,20 +6,25 @@ import Layout from "../components/layout"
 
 const IndexPage = props => {
   const books = props.data.allMongodbGatsbyBooks.edges
+  console.log(books)
 
   return (
     <Layout>
       <Layout>
         <div className="book-container">
-          {books.map(book => (
-            <div className="book">
-              <Link to={"/book/" + book.node.id}>
-                <img src={book.node.thumbnailUrl} />
-                <h2>{book.node.title}</h2>
-                <p>{book.node.shortDescription}</p>
-              </Link>
-            </div>
-          ))}
+          {books &&
+            books.map(book => {
+              const { id, title, shortDescription, thumbnailUrl } = book.node
+              return (
+                <div className="book">
+                  {thumbnailUrl && (
+                    <Link to={"/book/" + id}>
+                      <img src={thumbnailUrl} />
+                    </Link>
+                  )}
+                </div>
+              )
+            })}
         </div>
       </Layout>
     </Layout>

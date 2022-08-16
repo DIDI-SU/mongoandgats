@@ -222,3 +222,18 @@ pre tt:before,
 pre tt:after {
   content: none;
 }
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.book {
+  width: 25%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.book img {
+  width: 50%;
+}
