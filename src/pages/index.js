@@ -14,7 +14,7 @@ const IndexPage = props => {
         <div className="book-container">
           {books &&
             books.map(book => {
-              const { id, title, shortDescription, thumbnailUrl } = book.node
+              const { id, thumbnailUrl } = book.node
               return (
                 <div className="book">
                   {thumbnailUrl && (
